@@ -1,5 +1,5 @@
 const grpc = require("@grpc/grpc-js");
-const PROTO_PATH = "./divide-server/divide.proto";
+const PROTO_PATH = "./divide-config/divide.proto";
 var protoLoader = require("@grpc/proto-loader");
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {

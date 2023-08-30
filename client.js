@@ -1,7 +1,7 @@
 const grpc = require("@grpc/grpc-js");
 const loader = require('@grpc/proto-loader');
 
-const packageDefinitionAdd = loader.loadSync('./add-server/add.proto', {
+const packageDefinitionAdd = loader.loadSync('./add-config/add.proto', {
   keepCase: true,
   longs: String,
   enums: String,
@@ -9,7 +9,7 @@ const packageDefinitionAdd = loader.loadSync('./add-server/add.proto', {
   oneofs: true,
 });
 
-const packageDefinitionSubtract = loader.loadSync('./subtract-server/subtract.proto', {
+const packageDefinitionSubtract = loader.loadSync('./subtract-config/subtract.proto', {
   keepCase: true,
   longs: String,
   enums: String,
@@ -17,7 +17,7 @@ const packageDefinitionSubtract = loader.loadSync('./subtract-server/subtract.pr
   oneofs: true,
 });
 
-const packageDefinitionMultiply = loader.loadSync('./multiply-server/multiply.proto', {
+const packageDefinitionMultiply = loader.loadSync('./multiply-config/multiply.proto', {
   keepCase: true,
   longs: String,
   enums: String,
@@ -25,7 +25,7 @@ const packageDefinitionMultiply = loader.loadSync('./multiply-server/multiply.pr
   oneofs: true,
 });
 
-const packageDefinitionDivide = loader.loadSync('./divide-server/divide.proto', {
+const packageDefinitionDivide = loader.loadSync('./divide-config/divide.proto', {
   keepCase: true,
   longs: String,
   enums: String,
