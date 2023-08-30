@@ -1,3 +1,6 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 const grpc = require("@grpc/grpc-js");
 const loader = require('@grpc/proto-loader');
 
@@ -82,3 +85,34 @@ divideClient.Divide(operands, (error, response) => {
   }
 });
 
+const server = http.createServer((req, res) => {
+  if (req.url === '/') {
+    const filePath = path.join(__dirname, 'frontend', 'index.html');
+    const contentType = 'text/html';
+    
+    fs.readFile(filePath, 'utf8', (err, content) => {
+      if (err) {
+        res.writeHead(500);
+        res.end('Error loading the file');
+      } else {
+        res.writeHead(200, { 'Content-Type': contentType });
+        res.end(content);
+      }
+    });
+  }
+});
+let addBut = document.getElementById('add');
+addBut.addEventListener(('click'), ()=>{
+  addClient.Add(operands, (error, response) => {
+    if (!error) {
+      console.log('Soma:', response.value);
+    } else {
+      console.error('Error:', error);
+    }
+  });
+})
+// Capturar eventos dos botões e enviar solicitações gRPC...
+
+server.listen(8080, () => {
+  console.log('Server running at http://localhost:8080/');
+});
