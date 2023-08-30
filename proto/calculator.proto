@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service Calculator {
+  rpc Add (Operands) returns (Result);
+  rpc Subtract (Operands) returns (Result);
+  rpc Multiply (Operands) returns (Result);
+  rpc Divide (Operands) returns (Result);
+}
+
+message Operands {
+  float operand1 = 1;
+  float operand2 = 2;
+}
+
+message Result {
+  float value = 1;
+}

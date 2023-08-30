@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Multiply {
+  rpc Multiply (Operands) returns (Result);
+}
+
+message Operands {
+  float operand1 = 1;
+  float operand2 = 2;
+}
+
+message Result {
+  float value = 1;
+}
