@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+message Operands {
+  float operand1 = 1;
+  float operand2 = 2;
+}
+
+// Definição do serviço para a calculadora
+service Calculator {
+  // Operação de soma
+  rpc Add (Operands) returns (Result);
+
+  // Operação de subtração
+  rpc Subtract (Operands) returns (Result);
+
+  // Operação de multiplicação
+  rpc Multiply (Operands) returns (Result);
+
+  // Operação de divisão
+  rpc Divide (Operands) returns (Result);
+}
+
+message Result {
+  float value = 1;
+}
