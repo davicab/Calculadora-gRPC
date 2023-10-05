@@ -8,6 +8,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     enums: String,
     defaults: true,
     oneofs: true,
+    
 });
   
 const calculatorProto = grpc.loadPackageDefinition(packageDefinition);
